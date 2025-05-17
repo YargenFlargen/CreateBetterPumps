@@ -1,0 +1,7 @@
+// 1.20.1	2025-05-16T17:28:33.8191917	Registrate Provider for createbetterpumps [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+cfa746d51f721025263160605feae03135a63561 assets/createbetterpumps/blockstates/iron_pump.json
+25c637583edf859b993736f7d273443beb00b66e assets/createbetterpumps/lang/en_ud.json
+134a78427ccdf1844d8b351c4d669ddf589b7b02 assets/createbetterpumps/lang/en_us.json
+c9697fed52eb4fb3488f6b37c2f8a1fef9ca579a assets/createbetterpumps/models/item/iron_pump.json
+fbd47d103c6fb33f04285993a194267aa013c661 data/createbetterpumps/loot_tables/blocks/iron_pump.json
+7d3b51e31c645817e85d13facdffa4f1d4ea7522 data/minecraft/tags/blocks/mineable/pickaxe.json
