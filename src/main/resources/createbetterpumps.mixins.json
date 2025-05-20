@@ -1,0 +1,16 @@
+
+{
+  "required": true,
+  "minVersion": "0.8",
+  "priority": 1100,
+  "package": "com.yargenflargen.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "plugin": "com.yargenflargen.mixins.CreatePumpsMixinPlugin",
+  "mixins": [
+    "FluidPropagatorMixin"
+  ],
+
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Specification-Title: createbetterpumps
+Specification-Vendor: YargenFlargen
+Specification-Version: 1
+Implementation-Title: Create.0.0.1
+Implementation-Version: 0.0.1
+Implementation-Vendor: YargenFlargen
+Implementation-Timestamp: 2025-05-18T11:42:47+0100
+MixinConfigs: createbetterpumps.mixins.json
+

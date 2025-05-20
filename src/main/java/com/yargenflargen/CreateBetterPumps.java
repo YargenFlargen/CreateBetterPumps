@@ -10,6 +10,7 @@ import com.simibubi.create.foundation.item.ItemDescription;
 import com.simibubi.create.foundation.item.KineticStats;
 import com.simibubi.create.foundation.item.TooltipModifier;
 import com.simibubi.create.foundation.ponder.CreatePonderPlugin;
+import com.yargenflargen.createbetterpumps.config.CreateBetterPumpsConfig;
 import com.yargenflargen.datagen.CreatePumpsDataGen;
 import com.yargenflargen.entry.BetterPumpsLang;
 import com.yargenflargen.entry.CreatePumpsRegistration;
@@ -72,6 +73,7 @@ public final class CreateBetterPumps {
         MinecraftForge.EVENT_BUS.register(this);
 
         CreatePumpsEntity.register();
+        CreateBetterPumpsConfig.register(ModLoadingContext.get());
 
 
 
@@ -83,6 +85,9 @@ public final class CreateBetterPumps {
     }
     private void commonSetup(final FMLCommonSetupEvent event){
 
+    }
+    public static ResourceLocation asResource(String path) {
+        return new ResourceLocation("createbetterpumps", path);
     }
 
 

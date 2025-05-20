@@ -20,7 +20,8 @@ public class CreatePumpsTab {
             REGISTER.register("better_pumps",
                     () -> CreativeModeTab.builder()
                             .title(Component.translatable("itemGroup.better_pumps"))
-                            .withTabsBefore(ResourceLocation.of("create:palettes", ':'))                            .icon(() -> new ItemStack(Items.DIAMOND))
+                            .withTabsBefore(ResourceLocation.of("create:palettes", ':'))
+                            .icon(() -> new ItemStack(Items.DIAMOND))
                             .displayItems(
                                     (parameters, output) ->
                                             output.acceptAll(
