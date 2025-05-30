@@ -1,0 +1,22 @@
+// 1.21.1	2025-05-30T13:17:00.2715746	Registrate Provider for createbetterpumps [Registries, Data Maps, Recipes, Advancements, Loot Tables, Tags (enchantments), Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider]
+57f11c51721a32e221e1cf7fe4d9919dea122c49 assets/createbetterpumps/blockstates/diamond_pump.json
+ff9661a0012a1e44e96d82c685ba73a348aae3c9 assets/createbetterpumps/blockstates/gold_pump.json
+cfa746d51f721025263160605feae03135a63561 assets/createbetterpumps/blockstates/iron_pump.json
+9cf180550984981ec53764403716178fb3cfa7ff assets/createbetterpumps/blockstates/large_cog_gold_pump.json
+b4bc8217497ecd3673877d98e3d292f39eb994e0 assets/createbetterpumps/blockstates/large_cog_iron_pump.json
+37aecadc2a03e914bffa0f6ccf22e1065d2bc966 assets/createbetterpumps/blockstates/wood_pump.json
+c13d38ff2b4c25ea1bba596af72e0f31cea0ad62 assets/createbetterpumps/lang/en_ud.json
+c4218a3e22fa967d9a8aee3d0754df6481cbcc55 assets/createbetterpumps/lang/en_us.json
+104736a7b5d4c8a0a6c519fdcb9b1e3c2e31c795 assets/createbetterpumps/models/item/diamond_pump.json
+6f33e103ee3d9a5d988193e5cd78e73769692590 assets/createbetterpumps/models/item/gold_pump.json
+c9697fed52eb4fb3488f6b37c2f8a1fef9ca579a assets/createbetterpumps/models/item/iron_pump.json
+3c7fbbd148ef7fa3fa8febd269310f2d2db8a3b7 assets/createbetterpumps/models/item/large_cog_gold_pump.json
+b42e5b59c6141bb9b4012120f69ea6d998ee2d0f assets/createbetterpumps/models/item/large_cog_iron_pump.json
+018ebc51a3d801a163796b336ddbbfa1fd4ba797 assets/createbetterpumps/models/item/wood_pump.json
+441e4d089b2adf2e6c11c412dbc6d2da15b504b2 data/createbetterpumps/loot_table/blocks/diamond_pump.json
+84e7f3d98c3fd1adb8bb831ffced3196571e7903 data/createbetterpumps/loot_table/blocks/gold_pump.json
+fbd47d103c6fb33f04285993a194267aa013c661 data/createbetterpumps/loot_table/blocks/iron_pump.json
+31427c550efcf2e6e4fbf3b9c69dde9fa97bbccb data/createbetterpumps/loot_table/blocks/large_cog_gold_pump.json
+4468fd0546ef71be8d6240c17cf481162f6404ed data/createbetterpumps/loot_table/blocks/large_cog_iron_pump.json
+67567d74d9202f8e0e299701dea39a2284e678c3 data/createbetterpumps/loot_table/blocks/wood_pump.json
+68a5f63a7485d4710e29089431e5592fa560c6c8 data/minecraft/tags/block/mineable/pickaxe.json

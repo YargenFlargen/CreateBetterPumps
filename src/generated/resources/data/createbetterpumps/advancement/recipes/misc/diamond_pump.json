@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_diamond_pump": {
+      "conditions": {
+        "items": [
+          {
+            "items": "createbetterpumps:diamond_pump"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "createbetterpumps:diamond_pump"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_diamond_pump"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "createbetterpumps:diamond_pump"
+    ]
+  }
+}

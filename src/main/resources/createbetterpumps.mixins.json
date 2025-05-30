@@ -1,0 +1,15 @@
+
+{
+  "required": true,
+  "minVersion": "0.8",
+  "priority": 1100,
+  "package": "com.yargenflargen.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "FluidPropagatorMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

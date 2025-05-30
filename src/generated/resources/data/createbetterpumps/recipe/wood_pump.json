@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "c": {
+      "item": "create:cogwheel"
+    },
+    "w": {
+      "tag": "minecraft:logs"
+    }
+  },
+  "pattern": [
+    " w ",
+    "wcw",
+    " w "
+  ],
+  "result": {
+    "count": 1,
+    "id": "createbetterpumps:wood_pump"
+  }
+}

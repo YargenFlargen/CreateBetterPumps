@@ -1,0 +1,82 @@
+{
+  "variants": {
+    "axis=x,facing=down": {
+      "model": "createbetterpumps:block/large_cog_iron_pump/block",
+      "x": 180
+    },
+    "axis=x,facing=east": {
+      "model": "createbetterpumps:block/large_cog_iron_pump/block",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,facing=north": {
+      "model": "createbetterpumps:block/large_cog_iron_pump/block",
+      "x": 90
+    },
+    "axis=x,facing=south": {
+      "model": "createbetterpumps:block/large_cog_iron_pump/block",
+      "x": 90,
+      "y": 180
+    },
+    "axis=x,facing=up": {
+      "model": "createbetterpumps:block/large_cog_iron_pump/block"
+    },
+    "axis=x,facing=west": {
+      "model": "createbetterpumps:block/large_cog_iron_pump/block",
+      "x": 90,
+      "y": 270
+    },
+    "axis=y,facing=down": {
+      "model": "createbetterpumps:block/large_cog_iron_pump/block",
+      "x": 180
+    },
+    "axis=y,facing=east": {
+      "model": "createbetterpumps:block/large_cog_iron_pump/block",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,facing=north": {
+      "model": "createbetterpumps:block/large_cog_iron_pump/block",
+      "x": 90
+    },
+    "axis=y,facing=south": {
+      "model": "createbetterpumps:block/large_cog_iron_pump/block",
+      "x": 90,
+      "y": 180
+    },
+    "axis=y,facing=up": {
+      "model": "createbetterpumps:block/large_cog_iron_pump/block"
+    },
+    "axis=y,facing=west": {
+      "model": "createbetterpumps:block/large_cog_iron_pump/block",
+      "x": 90,
+      "y": 270
+    },
+    "axis=z,facing=down": {
+      "model": "createbetterpumps:block/large_cog_iron_pump/block",
+      "x": 180
+    },
+    "axis=z,facing=east": {
+      "model": "createbetterpumps:block/large_cog_iron_pump/block",
+      "x": 90,
+      "y": 90
+    },
+    "axis=z,facing=north": {
+      "model": "createbetterpumps:block/large_cog_iron_pump/block",
+      "x": 90
+    },
+    "axis=z,facing=south": {
+      "model": "createbetterpumps:block/large_cog_iron_pump/block",
+      "x": 90,
+      "y": 180
+    },
+    "axis=z,facing=up": {
+      "model": "createbetterpumps:block/large_cog_iron_pump/block"
+    },
+    "axis=z,facing=west": {
+      "model": "createbetterpumps:block/large_cog_iron_pump/block",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

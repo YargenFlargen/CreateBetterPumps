@@ -1,0 +1,9 @@
+{
+  "block.createbetterpumps.diamond_pump": "Diamond Pump",
+  "block.createbetterpumps.gold_pump": "Gold Pump",
+  "block.createbetterpumps.iron_pump": "Iron Pump",
+  "block.createbetterpumps.large_cog_gold_pump": "Large Cog Gold Pump",
+  "block.createbetterpumps.large_cog_iron_pump": "Large Cog Iron Pump",
+  "block.createbetterpumps.wood_pump": "Wood Pump",
+  "itemGroup.better_pumps": "Create: Better Pumps"
+}

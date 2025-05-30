@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "create:large_cogwheel"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "p": {
+      "item": "create:mechanical_pump"
+    }
+  },
+  "pattern": [
+    " i ",
+    "ipi",
+    " iL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "createbetterpumps:large_cog_iron_pump"
+  }
+}

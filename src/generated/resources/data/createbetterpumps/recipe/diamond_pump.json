@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "d": {
+      "item": "minecraft:diamond"
+    },
+    "p": {
+      "item": "create:mechanical_pump"
+    }
+  },
+  "pattern": [
+    "ddd",
+    "dpd",
+    "ddd"
+  ],
+  "result": {
+    "count": 1,
+    "id": "createbetterpumps:diamond_pump"
+  }
+}

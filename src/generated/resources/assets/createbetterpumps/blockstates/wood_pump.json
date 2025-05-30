@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "createbetterpumps:block/wood_pump/block",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "createbetterpumps:block/wood_pump/block",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "createbetterpumps:block/wood_pump/block",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "createbetterpumps:block/wood_pump/block",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "createbetterpumps:block/wood_pump/block"
+    },
+    "facing=west": {
+      "model": "createbetterpumps:block/wood_pump/block",
+      "x": 90,
+      "y": 270
+    }
+  }
+}
