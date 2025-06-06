@@ -90,7 +90,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
                             BlockEntity tileEntity = world.getBlockEntity(target);
                             BlockState targetState = world.getBlockState(target);
                             if (tileEntity instanceof PumpBlockEntity) {
-                                if ((CreatePumpsBlocks.IRON_PUMP.has(targetState) || CreatePumpsBlocks.WOOD_PUMP.has(targetState)||AllBlocks.MECHANICAL_PUMP.has(targetState))  && ((Direction)targetState.getValue(PumpBlock.FACING)).getAxis() == direction.getAxis()) {
+                                if (( CreatePumpsBlocks.LARGE_COG_WOOD_PUMP_BLOCK.has(targetState) || CreatePumpsBlocks.LARGE_COG_DIAMOND_PUMP_BLOCK.has(targetState) || CreatePumpsBlocks.LARGE_COG_BRASS_PUMP_BLOCK.has(targetState) || CreatePumpsBlocks.BRASS_PUMP.has(targetState) || CreatePumpsBlocks.LARGE_COG_GOLD_PUMP_BLOCK.has(targetState) || CreatePumpsBlocks.LARGE_COG_IRON_PUMP_BLOCK.has(targetState) || CreatePumpsBlocks.IRON_PUMP.has(targetState) || CreatePumpsBlocks.WOOD_PUMP.has(targetState) || CreatePumpsBlocks.GOLD_PUMP.has(targetState) || CreatePumpsBlocks.DIAMOND_PUMP.has(targetState) ||AllBlocks.MECHANICAL_PUMP.has(targetState))  && ((Direction)targetState.getValue(PumpBlock.FACING)).getAxis() == direction.getAxis()) {
                                     discoveredPumps.add(Pair.of((PumpBlockEntity)tileEntity, direction.getOpposite()));
                                 }
                             } else if (!visited.contains(target)) {

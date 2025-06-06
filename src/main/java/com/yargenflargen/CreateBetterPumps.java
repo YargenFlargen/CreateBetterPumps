@@ -2,6 +2,7 @@ package com.yargenflargen;
 
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.AllPartialModels;
+import com.simibubi.create.CreateClient;
 import com.simibubi.create.content.contraptions.render.ContraptionRenderInfo;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
 import com.simibubi.create.content.kinetics.waterwheel.WaterWheelRenderer;
@@ -56,10 +57,11 @@ public final class CreateBetterPumps {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public CreateBetterPumps() {
+        ModLoadingContext modLoadingContext = ModLoadingContext.get();
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        REG.registerEventListeners(FMLJavaModLoadingContext.get().getModEventBus());
-
         modEventBus.addListener(this::commonSetup);
+
+        REG.registerEventListeners(modEventBus);
 
 
 
@@ -70,14 +72,16 @@ public final class CreateBetterPumps {
         BetterPumpsLang.register();
         CreatePumpsBlocks.register();
 
-        MinecraftForge.EVENT_BUS.register(this);
+
 
         CreatePumpsEntity.register();
         CreateBetterPumpsConfig.register(ModLoadingContext.get());
 
+        DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> CreatePumpsClient::new);
+        MinecraftForge.EVENT_BUS.register(this);
 
 
-        modEventBus.addListener(EventPriority.LOWEST, CreatePumpsDataGen::gatherData);
+        // modEventBus.addListener(EventPriority.LOWEST, CreatePumpsDataGen::gatherData);
 
 
 

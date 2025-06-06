@@ -1,6 +1,7 @@
 package com.yargenflargen.entry;
 
 import com.yargenflargen.CreateBetterPumps;
+import com.yargenflargen.CreatePumpsBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -12,6 +13,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class CreatePumpsTab {
     private static final DeferredRegister<CreativeModeTab> REGISTER
             = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CreateBetterPumps.MOD_ID);
+
     public static void register(IEventBus modEventBus) {
         REGISTER.register(modEventBus);
     }
@@ -21,7 +23,7 @@ public class CreatePumpsTab {
                     () -> CreativeModeTab.builder()
                             .title(Component.translatable("itemGroup.better_pumps"))
                             .withTabsBefore(ResourceLocation.of("create:palettes", ':'))
-                            .icon(() -> new ItemStack(Items.DIAMOND))
+                            .icon(() -> new ItemStack(CreatePumpsBlocks.WOOD_PUMP.asItem()))
                             .displayItems(
                                     (parameters, output) ->
                                             output.acceptAll(

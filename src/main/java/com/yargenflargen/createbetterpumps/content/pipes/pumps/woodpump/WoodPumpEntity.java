@@ -142,7 +142,7 @@ WoodPumpEntity extends PumpBlockEntity {
 
             List<Pair<Integer, BlockPos>> frontier = new ArrayList<>();
             Set<BlockPos> visited = new HashSet<>();
-            int maxDistance = FluidPropagator.getPumpRange()-4;
+            int maxDistance = FluidPropagator.getPumpRange()-3;
             frontier.add(Pair.of(1, start.getConnectedPos()));
 
             while (!frontier.isEmpty()) {

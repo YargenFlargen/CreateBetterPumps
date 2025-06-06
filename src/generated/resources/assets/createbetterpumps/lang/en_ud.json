@@ -1,5 +1,13 @@
 {
+  "block.createbetterpumps.brass_pump": "dɯnԀ ssɐɹᗺ",
+  "block.createbetterpumps.diamond_pump": "dɯnԀ puoɯɐıᗡ",
+  "block.createbetterpumps.gold_pump": "dɯnԀ pןo⅁",
   "block.createbetterpumps.iron_pump": "dɯnԀ uoɹI",
+  "block.createbetterpumps.large_cog_brass_pump": "dɯnԀ ssɐɹᗺ boƆ ǝbɹɐꞀ",
+  "block.createbetterpumps.large_cog_diamond_pump": "dɯnԀ puoɯɐıᗡ boƆ ǝbɹɐꞀ",
+  "block.createbetterpumps.large_cog_gold_pump": "dɯnԀ pןo⅁ boƆ ǝbɹɐꞀ",
+  "block.createbetterpumps.large_cog_iron_pump": "dɯnԀ uoɹI boƆ ǝbɹɐꞀ",
+  "block.createbetterpumps.large_cog_wood_pump": "dɯnԀ pooM boƆ ǝbɹɐꞀ",
   "block.createbetterpumps.wood_pump": "dɯnԀ pooM",
   "itemGroup.better_pumps": "sdɯnԀ ɹǝʇʇǝᗺ :ǝʇɐǝɹƆ"
 }

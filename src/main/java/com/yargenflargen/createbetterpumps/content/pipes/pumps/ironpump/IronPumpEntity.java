@@ -53,7 +53,6 @@ IronPumpEntity extends PumpBlockEntity {
     public IronPumpEntity(BlockEntityType<?> typeIn, BlockPos pos, BlockState state) {
         super(typeIn, pos, state);
         sidesToUpdate = Couple.create(MutableBoolean::new);
-        this.setLazyTickRate(1);
     }
 
     @Override
