@@ -1,4 +1,4 @@
-package com.yargenflargen.createbetterpumps.content.pipes.pumps.largecog_goldpump;
+package com.yargenflargen.createbetterpumps.content.pipes.pumps.largecog_woodpump;
 
 import com.simibubi.create.content.fluids.FluidTransportBehaviour;
 import com.simibubi.create.content.fluids.pump.PumpBlock;
@@ -24,12 +24,12 @@ import static com.simibubi.create.foundation.block.ProperWaterloggedBlock.withWa
 
 
 
-public class LargeCogGoldPump extends PumpBlock implements ICogWheel {
+public class LargeCogWoodPump extends PumpBlock implements ICogWheel {
 
     public static EnumProperty<Direction.Axis> AXIS = CogWheelBlock.AXIS;
     public final boolean largeCog;
 
-    public LargeCogGoldPump(Properties p_i48415_1_) {
+    public LargeCogWoodPump(Properties p_i48415_1_) {
         super(p_i48415_1_);
         this.largeCog = true;
 
@@ -57,7 +57,7 @@ public class LargeCogGoldPump extends PumpBlock implements ICogWheel {
     @Override
     public void tick(BlockState state, ServerLevel world, BlockPos pos, RandomSource r) {
         super.tick(state, world, pos, r);
-       //((PumpBlockEntity)this.getBlockEntity(world, pos)).updatePressureChange();
+       ((PumpBlockEntity)this.getBlockEntity(world, pos)).updatePressureChange();
     }
 
     @Override
@@ -73,8 +73,6 @@ public class LargeCogGoldPump extends PumpBlock implements ICogWheel {
                 .setValue(AXIS, facing.getAxis());
     }
 
-
-
     @Override
     public boolean isLargeCog() {
         return true;
@@ -86,7 +84,7 @@ public class LargeCogGoldPump extends PumpBlock implements ICogWheel {
     }
 
     public BlockEntityType<? extends PumpBlockEntity> getBlockEntityType() {
-        return (BlockEntityType) CreatePumpsEntity.LARGE_COG_GOLD_PUMP_ENTITY_BLOCK_ENTITY.get();
+        return (BlockEntityType) CreatePumpsEntity.LARGE_COG_WOOD_PUMP_ENTITY_BLOCK_ENTITY_ENTRY.get();
     }
 }
 

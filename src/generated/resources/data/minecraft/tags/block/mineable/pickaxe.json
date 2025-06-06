@@ -1,10 +1,14 @@
 {
   "values": [
-    "createbetterpumps:large_cog_gold_pump",
-    "createbetterpumps:large_cog_iron_pump",
-    "createbetterpumps:iron_pump",
     "createbetterpumps:wood_pump",
+    "createbetterpumps:large_cog_wood_pump",
+    "createbetterpumps:iron_pump",
+    "createbetterpumps:large_cog_iron_pump",
     "createbetterpumps:gold_pump",
-    "createbetterpumps:diamond_pump"
+    "createbetterpumps:large_cog_gold_pump",
+    "createbetterpumps:diamond_pump",
+    "createbetterpumps:large_cog_diamond_pump",
+    "createbetterpumps:brass_pump",
+    "createbetterpumps:large_cog_brass_pump"
   ]
 }

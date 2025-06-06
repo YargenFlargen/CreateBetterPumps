@@ -6,7 +6,7 @@
       "item": "minecraft:diamond"
     },
     "p": {
-      "item": "create:mechanical_pump"
+      "item": "createbetterpumps:iron_pump"
     }
   },
   "pattern": [

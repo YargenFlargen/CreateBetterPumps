@@ -5,6 +5,7 @@ import com.simibubi.create.content.fluids.FluidTransportBehaviour;
 import com.simibubi.create.content.fluids.PipeConnection;
 import com.simibubi.create.content.fluids.pump.PumpBlock;
 import com.simibubi.create.content.fluids.pump.PumpBlockEntity;
+import com.simibubi.create.content.kinetics.base.DirectionalKineticBlock;
 import com.simibubi.create.content.kinetics.base.IRotate;
 import com.simibubi.create.content.kinetics.simpleRelays.ICogWheel;
 import com.simibubi.create.foundation.advancement.AllAdvancements;
@@ -16,11 +17,14 @@ import net.createmod.catnip.data.Pair;
 import net.createmod.catnip.math.BlockFace;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import org.apache.commons.lang3.mutable.MutableBoolean;
@@ -29,20 +33,27 @@ import javax.annotation.Nullable;
 import java.util.*;
 import java.util.Map.Entry;
 
-public class LargeCogGoldPumpEntity extends PumpBlockEntity {
-
+public class
+LargeCogGoldPumpEntity extends PumpBlockEntity {
 
     Couple<MutableBoolean> sidesToUpdate;
     boolean pressureUpdate;
 
+
     // Backcompat- flips any pump blockstate that loads with reversed=true
     boolean scheduleFlip;
-
-
 
     public LargeCogGoldPumpEntity(BlockEntityType<?> typeIn, BlockPos pos, BlockState state) {
         super(typeIn, pos, state);
         sidesToUpdate = Couple.create(MutableBoolean::new);
+    }
+
+    @Override
+    public void addBehaviours(List<BlockEntityBehaviour> behaviours) {
+        super.addBehaviours(behaviours);
+        behaviours.add(new PumpFluidTransferBehaviour(this));
+        registerAwardables(behaviours, FluidPropagator.getSharedTriggers());
+        registerAwardables(behaviours, AllAdvancements.PUMP);
     }
 
     @Override
@@ -63,13 +74,6 @@ public class LargeCogGoldPumpEntity extends PumpBlockEntity {
         return true;
     }
 
-    @Override
-    public void addBehaviours(List<BlockEntityBehaviour> behaviours) {
-        super.addBehaviours(behaviours);
-        behaviours.add(new PumpFluidTransferBehaviour(this));
-        registerAwardables(behaviours, FluidPropagator.getSharedTriggers());
-        registerAwardables(behaviours, AllAdvancements.PUMP);
-    }
 
     @Override
     public void tick() {
@@ -91,6 +95,11 @@ public class LargeCogGoldPumpEntity extends PumpBlockEntity {
             update.setFalse();
             distributePressureTo(isFront ? getFront() : getFront().getOpposite());
         });
+    }
+
+    @Override
+    public void lazyTick() {
+        super.lazyTick();
     }
 
     @Override
@@ -120,11 +129,15 @@ public class LargeCogGoldPumpEntity extends PumpBlockEntity {
         sidesToUpdate.forEach(MutableBoolean::setTrue);
     }
 
-
+    @Override
+    protected void read(CompoundTag compound, HolderLookup.Provider registries, boolean clientPacket) {
+        super.read(compound, registries, clientPacket);
+    }
 
     protected void distributePressureTo(Direction side) {
         if (getSpeed() == 0)
             return;
+
 
         BlockFace start = new BlockFace(worldPosition, side);
         boolean pull = isPullingOnSide(isFront(side));
@@ -303,12 +316,14 @@ public class LargeCogGoldPumpEntity extends PumpBlockEntity {
         return FluidPropagator.isOpenEnd(world, blockFace.getPos(), face);
     }
 
+
     public void updatePipesOnSide(Direction side) {
         if (!isSideAccessible(side))
             return;
         updatePipeNetwork(isFront(side));
         getBehaviour(FluidTransportBehaviour.TYPE).wipePressure();
     }
+
 
     protected boolean isFront(Direction side) {
         BlockState blockState = getBlockState();
@@ -350,12 +365,14 @@ public class LargeCogGoldPumpEntity extends PumpBlockEntity {
             super(be);
         }
 
+
+
         @Override
         public void tick() {
             super.tick();
-            for (Entry<Direction, PipeConnection> entry : interfaces.entrySet()) {
-                boolean pull = isPullingOnSide(isFront(entry.getKey()));
-                Couple<Float> pressure = entry.getValue().getPressure();
+            for (Entry<Direction, PipeConnection> entry : this.interfaces.entrySet()) {
+                boolean pull = LargeCogGoldPumpEntity.this.isPullingOnSide(LargeCogGoldPumpEntity.this.isFront((Direction)entry.getKey()));
+                Couple<Float> pressure = ((PipeConnection)entry.getValue()).getPressure();
                 pressure.set(pull, Math.abs(getSpeed()));
                 pressure.set(!pull, 0f);
             }
@@ -363,7 +380,7 @@ public class LargeCogGoldPumpEntity extends PumpBlockEntity {
 
         @Override
         public boolean canHaveFlowToward(BlockState state, Direction direction) {
-            return isSideAccessible(direction);
+            return LargeCogGoldPumpEntity.this.isSideAccessible(direction);
         }
 
         @Override

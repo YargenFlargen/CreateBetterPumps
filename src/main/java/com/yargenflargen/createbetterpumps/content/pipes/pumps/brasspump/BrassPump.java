@@ -1,4 +1,4 @@
-package com.yargenflargen.createbetterpumps.content.pipes.pumps.woodpump;
+package com.yargenflargen.createbetterpumps.content.pipes.pumps.brasspump;
 
 import com.simibubi.create.content.fluids.FluidTransportBehaviour;
 import com.simibubi.create.content.fluids.pump.PumpBlock;
@@ -12,8 +12,8 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class WoodPump extends PumpBlock {
-    public WoodPump(Properties p_i48415_1_) {
+public class BrassPump extends PumpBlock {
+    public BrassPump(Properties p_i48415_1_) {
         super(p_i48415_1_);
     }
 
@@ -21,7 +21,7 @@ public class WoodPump extends PumpBlock {
     @Override
     public void tick(BlockState state, ServerLevel world, BlockPos pos, RandomSource r) {
         super.tick(state, world, pos, r);
-       //((PumpBlockEntity)this.getBlockEntity(world, pos)).updatePressureChange();
+       ((PumpBlockEntity)this.getBlockEntity(world, pos)).updatePressureChange();
     }
 
     @Override
@@ -37,7 +37,7 @@ public class WoodPump extends PumpBlock {
     }
 
     public BlockEntityType<? extends PumpBlockEntity> getBlockEntityType() {
-        return (BlockEntityType) CreatePumpsEntity.WOOD_PUMP.get();
+        return (BlockEntityType)CreatePumpsEntity.BRASS_PUMP.get();
     }
 }
 

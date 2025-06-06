@@ -1,10 +1,13 @@
-package com.yargenflargen.createbetterpumps.content.pipes.pumps.goldpump;
+package com.yargenflargen.createbetterpumps.content.pipes.pumps.largecog_diamondpump;
 
 import com.simibubi.create.content.fluids.FluidPropagator;
 import com.simibubi.create.content.fluids.FluidTransportBehaviour;
 import com.simibubi.create.content.fluids.PipeConnection;
 import com.simibubi.create.content.fluids.pump.PumpBlock;
 import com.simibubi.create.content.fluids.pump.PumpBlockEntity;
+import com.simibubi.create.content.kinetics.base.DirectionalKineticBlock;
+import com.simibubi.create.content.kinetics.base.IRotate;
+import com.simibubi.create.content.kinetics.simpleRelays.ICogWheel;
 import com.simibubi.create.foundation.advancement.AllAdvancements;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
@@ -21,17 +24,17 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import org.apache.commons.lang3.mutable.MutableBoolean;
-
 
 import javax.annotation.Nullable;
 import java.util.*;
 import java.util.Map.Entry;
 
 public class
-GoldPumpEntity extends PumpBlockEntity {
+LargeCogDiamondPumpEntity extends PumpBlockEntity {
 
     Couple<MutableBoolean> sidesToUpdate;
     boolean pressureUpdate;
@@ -40,18 +43,36 @@ GoldPumpEntity extends PumpBlockEntity {
     // Backcompat- flips any pump blockstate that loads with reversed=true
     boolean scheduleFlip;
 
-    public GoldPumpEntity(BlockEntityType<?> typeIn, BlockPos pos, BlockState state) {
+    public LargeCogDiamondPumpEntity(BlockEntityType<?> typeIn, BlockPos pos, BlockState state) {
         super(typeIn, pos, state);
         sidesToUpdate = Couple.create(MutableBoolean::new);
-        //this.setLazyTickRate(10);
+        this.setLazyTickRate(10);
     }
 
     @Override
     public void addBehaviours(List<BlockEntityBehaviour> behaviours) {
         super.addBehaviours(behaviours);
-        behaviours.add(new GoldPumpFluidTransferBehaviour(this));
+        behaviours.add(new PumpFluidTransferBehaviour(this));
         registerAwardables(behaviours, FluidPropagator.getSharedTriggers());
         registerAwardables(behaviours, AllAdvancements.PUMP);
+    }
+
+    @Override
+    public List<BlockPos> addPropagationLocations(IRotate block, BlockState state, List<BlockPos> neighbours) {
+        if (!ICogWheel.isLargeCog(state))
+            return super.addPropagationLocations(block, state, neighbours);
+
+        BlockPos.betweenClosedStream(new BlockPos(-1, -1, -1), new BlockPos(1, 1, 1))
+                .forEach(offset -> {
+                    if (offset.distSqr(BlockPos.ZERO) == 2)
+                        neighbours.add(worldPosition.offset(offset));
+                });
+        return neighbours;
+    }
+
+    @Override
+    protected boolean canPropagateDiagonally(IRotate block, BlockState state) {
+        return true;
     }
 
 
@@ -114,11 +135,6 @@ GoldPumpEntity extends PumpBlockEntity {
         super.read(compound, registries, clientPacket);
     }
 
-    @Override
-    public void onLoad() {
-        super.onLoad();
-    }
-
     protected void distributePressureTo(Direction side) {
         if (getSpeed() == 0)
             return;
@@ -143,7 +159,7 @@ GoldPumpEntity extends PumpBlockEntity {
 
             List<Pair<Integer, BlockPos>> frontier = new ArrayList<>();
             Set<BlockPos> visited = new HashSet<>();
-            int maxDistance = FluidPropagator.getPumpRange()+5;
+            int maxDistance = FluidPropagator.getPumpRange()+10;
             frontier.add(Pair.of(1, start.getConnectedPos()));
 
             while (!frontier.isEmpty()) {
@@ -180,7 +196,7 @@ GoldPumpEntity extends PumpBlockEntity {
                     FluidTransportBehaviour pipeBehaviour = FluidPropagator.getPipe(level, connectedPos);
                     if (pipeBehaviour == null)
                         continue;
-                    if (pipeBehaviour instanceof GoldPumpFluidTransferBehaviour)
+                    if (pipeBehaviour instanceof PumpFluidTransferBehaviour)
                         continue;
                     if (visited.contains(connectedPos))
                         continue;
@@ -281,7 +297,7 @@ GoldPumpEntity extends PumpBlockEntity {
 
         // facing a pump
         if (PumpBlock.isPump(connectedState) && connectedState.getValue(PumpBlock.FACING)
-                .getAxis() == face.getAxis() && blockEntity instanceof GoldPumpEntity pumpBE) {
+                .getAxis() == face.getAxis() && blockEntity instanceof LargeCogDiamondPumpEntity pumpBE) {
             return pumpBE.isPullingOnSide(pumpBE.isFront(blockFace.getOppositeFace())) != pull;
         }
 
@@ -344,9 +360,9 @@ GoldPumpEntity extends PumpBlockEntity {
         return !front;
     }
 
-    class GoldPumpFluidTransferBehaviour extends FluidTransportBehaviour {
+    class PumpFluidTransferBehaviour extends FluidTransportBehaviour {
 
-        public GoldPumpFluidTransferBehaviour(SmartBlockEntity be) {
+        public PumpFluidTransferBehaviour(SmartBlockEntity be) {
             super(be);
         }
 
@@ -356,7 +372,7 @@ GoldPumpEntity extends PumpBlockEntity {
         public void tick() {
             super.tick();
             for (Entry<Direction, PipeConnection> entry : this.interfaces.entrySet()) {
-                boolean pull = GoldPumpEntity.this.isPullingOnSide(GoldPumpEntity.this.isFront((Direction)entry.getKey()));
+                boolean pull = LargeCogDiamondPumpEntity.this.isPullingOnSide(LargeCogDiamondPumpEntity.this.isFront((Direction)entry.getKey()));
                 Couple<Float> pressure = ((PipeConnection)entry.getValue()).getPressure();
                 pressure.set(pull, Math.abs(getSpeed()));
                 pressure.set(!pull, 0f);
@@ -365,7 +381,7 @@ GoldPumpEntity extends PumpBlockEntity {
 
         @Override
         public boolean canHaveFlowToward(BlockState state, Direction direction) {
-            return isSideAccessible(direction);
+            return LargeCogDiamondPumpEntity.this.isSideAccessible(direction);
         }
 
         @Override

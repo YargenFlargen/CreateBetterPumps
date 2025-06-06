@@ -1,6 +1,7 @@
 package com.yargenflargen.datagen;
 
 import com.simibubi.create.AllBlocks;
+import com.simibubi.create.AllItems;
 import com.yargenflargen.CreateBetterPumps;
 import com.yargenflargen.CreatePumpsBlocks;
 import net.minecraft.core.HolderLookup;
@@ -55,6 +56,15 @@ public class CreatePumpsRecipeProvider extends RecipeProvider implements ICondit
                 .unlockedBy(getHasName(CreatePumpsBlocks.IRON_PUMP.get()), has(CreatePumpsBlocks.IRON_PUMP.get()))
                 .save(pWriter);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CreatePumpsBlocks.LARGE_COG_WOOD_PUMP_BLOCK.get())
+                .pattern(" w ")
+                .pattern("wLw")
+                .pattern(" w ")
+                .define('w', Ingredient.of(ItemTags.LOGS))
+                .define('L', AllBlocks.LARGE_COGWHEEL)
+                .unlockedBy(getHasName(CreatePumpsBlocks.LARGE_COG_WOOD_PUMP_BLOCK.get()), has(CreatePumpsBlocks.LARGE_COG_WOOD_PUMP_BLOCK.get()))
+                .save(pWriter);
+
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CreatePumpsBlocks.IRON_PUMP.get())
                 .pattern(" i ")
@@ -73,6 +83,25 @@ public class CreatePumpsRecipeProvider extends RecipeProvider implements ICondit
                 .define('p', AllBlocks.MECHANICAL_PUMP.get())
                 .define('L', AllBlocks.LARGE_COGWHEEL.get())
                 .unlockedBy(getHasName(CreatePumpsBlocks.LARGE_COG_IRON_PUMP_BLOCK.get()), has(CreatePumpsBlocks.LARGE_COG_IRON_PUMP_BLOCK.get()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CreatePumpsBlocks.BRASS_PUMP.get())
+                .pattern("ddd")
+                .pattern("dpd")
+                .pattern("ddd")
+                .define('d', Ingredient.of(AllItems.BRASS_INGOT))
+                .define('p', CreatePumpsBlocks.IRON_PUMP.get())
+                .unlockedBy(getHasName(CreatePumpsBlocks.BRASS_PUMP.get()), has(CreatePumpsBlocks.BRASS_PUMP.get()))
+                .save(pWriter);
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CreatePumpsBlocks.LARGE_COG_BRASS_PUMP_BLOCK.get())
+                .pattern("bbb")
+                .pattern("bpb")
+                .pattern("bbb")
+                .define('b', Ingredient.of(AllItems.BRASS_INGOT))
+                .define('p', CreatePumpsBlocks.LARGE_COG_IRON_PUMP_BLOCK.get())
+                .unlockedBy(getHasName(CreatePumpsBlocks.LARGE_COG_BRASS_PUMP_BLOCK.get()), has(CreatePumpsBlocks.LARGE_COG_BRASS_PUMP_BLOCK.get()))
                 .save(pWriter);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CreatePumpsBlocks.GOLD_PUMP.get())
@@ -94,13 +123,24 @@ public class CreatePumpsRecipeProvider extends RecipeProvider implements ICondit
                 .unlockedBy(getHasName(CreatePumpsBlocks.LARGE_COG_GOLD_PUMP_BLOCK.get()), has(CreatePumpsBlocks.LARGE_COG_IRON_PUMP_BLOCK.get()))
                 .save(pWriter);
 
+
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CreatePumpsBlocks.DIAMOND_PUMP.get())
                 .pattern("ddd")
                 .pattern("dpd")
                 .pattern("ddd")
                 .define('d', Ingredient.of(Items.DIAMOND))
-                .define('p', AllBlocks.MECHANICAL_PUMP.get())
+                .define('p', CreatePumpsBlocks.IRON_PUMP.get())
                 .unlockedBy(getHasName(CreatePumpsBlocks.DIAMOND_PUMP.get()), has(CreatePumpsBlocks.DIAMOND_PUMP.get()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CreatePumpsBlocks.LARGE_COG_DIAMOND_PUMP_BLOCK.get())
+                .pattern("ddd")
+                .pattern("dpd")
+                .pattern("ddd")
+                .define('d', Ingredient.of(Items.DIAMOND))
+                .define('p', CreatePumpsBlocks.LARGE_COG_IRON_PUMP_BLOCK.get())
+                .unlockedBy(getHasName(CreatePumpsBlocks.LARGE_COG_DIAMOND_PUMP_BLOCK.get()), has(CreatePumpsBlocks.LARGE_COG_DIAMOND_PUMP_BLOCK.get()))
                 .save(pWriter);
 
     }
