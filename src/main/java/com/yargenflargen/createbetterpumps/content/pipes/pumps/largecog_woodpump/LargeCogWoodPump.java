@@ -35,7 +35,7 @@ public class LargeCogWoodPump extends PumpBlock implements ICogWheel {
 
     }
 
-    @Override
+    /*@Override
     public void onNeighborChange(BlockState state, LevelReader level, BlockPos pos, BlockPos neighbor) {
         super.onNeighborChange(state, level, pos, neighbor);
 
@@ -45,7 +45,7 @@ public class LargeCogWoodPump extends PumpBlock implements ICogWheel {
                 behaviour.wipePressure();
             }
         }
-    }
+    }*/
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {

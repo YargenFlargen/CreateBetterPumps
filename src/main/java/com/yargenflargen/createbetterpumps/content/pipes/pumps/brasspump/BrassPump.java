@@ -24,7 +24,7 @@ public class BrassPump extends PumpBlock {
        ((PumpBlockEntity)this.getBlockEntity(world, pos)).updatePressureChange();
     }
 
-    @Override
+   /* @Override
     public void onNeighborChange(BlockState state, LevelReader level, BlockPos pos, BlockPos neighbor) {
         super.onNeighborChange(state, level, pos, neighbor);
 
@@ -34,7 +34,7 @@ public class BrassPump extends PumpBlock {
                 behaviour.wipePressure();
             }
         }
-    }
+    }*/
 
     public BlockEntityType<? extends PumpBlockEntity> getBlockEntityType() {
         return (BlockEntityType)CreatePumpsEntity.BRASS_PUMP.get();
