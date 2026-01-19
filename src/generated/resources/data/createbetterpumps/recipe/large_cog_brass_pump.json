@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "create:brass_ingot"
+    },
+    "p": {
+      "item": "createbetterpumps:large_cog_iron_pump"
+    }
+  },
+  "pattern": [
+    "bbb",
+    "bpb",
+    "bbb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "createbetterpumps:large_cog_brass_pump"
+  }
+}

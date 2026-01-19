@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "create:large_cogwheel"
+    },
+    "w": {
+      "tag": "minecraft:logs"
+    }
+  },
+  "pattern": [
+    " w ",
+    "wLw",
+    " w "
+  ],
+  "result": {
+    "count": 1,
+    "id": "createbetterpumps:large_cog_wood_pump"
+  }
+}
